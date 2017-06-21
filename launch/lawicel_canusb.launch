@@ -1,0 +1,28 @@
+<launch>
+
+    <group ns="/">
+      <node 
+        pkg="lawicel_canusb" 
+        name="ros2can" 
+        type="ros2can"
+       />
+    </group>
+
+    <group ns="/">
+      <node 
+        pkg="lawicel_canusb" 
+        name="canopen" 
+        type="canopen.sh" 
+        launch-prefix="terminator -x "
+       />
+    </group>
+
+    <group ns="/">
+      <node 
+        pkg="lawicel_canusb" 
+        name="can2ros" 
+        type="can2ros" 
+        args="slcan0"
+       />
+    </group>
+</launch>
