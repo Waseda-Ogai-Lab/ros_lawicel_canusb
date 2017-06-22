@@ -13,14 +13,18 @@ All the can message will be published on ROS Topic *"/can_rx"*
 
 ## Run  
 * Register the can device
->`rosrun package_name canopen.sh`  
+```
+rosrun package_name canopen.sh
+```
 * Run our packed nodes
->`roslaunch papackage_name lawicel_canusb.launch`  
+```
+roslaunch papackage_name lawicel_canusb.launch
+```
 
 ## Test  
 * Install Can-utils  
 You can find your way in http://elinux.org/Can-utils. 
 * Test  
-Help yourselves! If you have any questions please contact us.
+Help yourselves! If you have any questions please contact us or add issues. 
 
 
