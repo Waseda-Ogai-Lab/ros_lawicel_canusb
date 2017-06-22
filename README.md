@@ -8,8 +8,10 @@ About CANUSB's picture as follow:
 
 ## Principle 
 - How to Send CAN message:   
+
 Send messages to ROS Topic *"/can_tx"*  
 - Read Receive CAN message:   
+
 All the can message will be published on ROS Topic *"/can_rx"*    
 
 ## Run  
@@ -24,8 +26,11 @@ roslaunch package_name lawicel_canusb.launch
 
 ## Test  
 - Install Can-utils   
+
 You can find your way in http://elinux.org/Can-utils. 
+
 - Test  
+
 Help yourselves! If you have any questions please contact us or add issues. 
 
 
