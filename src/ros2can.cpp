@@ -15,13 +15,13 @@
 
 #include "ros/ros.h"
 #include "data2msg.h"
-#include "coms_msgs/CanMessage.h"
+#include "ros_lawicel_canusb/CanMessage.h"
 
 int can_id = 0;
 uint8_t can_data[8] = {0};
 
 
-void callback(const coms_msgs::CanMessage &can_frame)
+void callback(const ros_lawicel_canusb::CanMessage &can_frame)
 {
     can_id = can_frame.id;
     for(int i=0; i<8; i++)

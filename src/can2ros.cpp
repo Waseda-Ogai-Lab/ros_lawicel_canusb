@@ -65,7 +65,7 @@
 #include "terminal.h"
 #include "lib.h"
 #include "ros/ros.h"
-#include "coms_msgs/CanMessageStamped.h"
+#include "ros_lawicel_canusb/CanMessageStamped.h"
 
 #define MAXSOCK 16    /* max. number of CAN interfaces given on the cmdline */
 #define MAXIFNAMES 30 /* size of receive name index to omit ioctls */
@@ -93,6 +93,7 @@ const int canfd_on = 1;
 extern int optind, opterr, optopt;
 
 static volatile int running = 1;
+
 
 
 void sigterm(int signo)
@@ -151,15 +152,12 @@ int idx2dindex(int ifidx, int socket) {
 
 int main(int argc, char **argv)
 {
-//	printf("\nIoptopt:%d\n",optopt);
-//				printf("Ioptind:%d\n",optind);
-//				printf("Iopterr:%d\n",opterr);
-	
+
         ros::init(argc, argv, "can2ros");
 	ros::NodeHandle n;
-//	ros::Publisher pub = n.advertise<std_msgs::String>("pub_test",2);
-	ros::Publisher canpub = n.advertise<coms_msgs::CanMessageStamped>("can_rx",2);
-	coms_msgs::CanMessageStamped can_frame;
+
+	ros::Publisher canpub = n.advertise<ros_lawicel_canusb::CanMessageStamped>("can_rx",2);
+	ros_lawicel_canusb::CanMessageStamped can_frame;
 	
 	fd_set rdfs;
 	int s[MAXSOCK];
@@ -252,7 +250,11 @@ int main(int argc, char **argv)
 
 	int count = 0;
 	while (running) 
-	{
+	{   
+////////////////////////////////////
+
+
+////////////////////////////////////
 	    FD_ZERO(&rdfs);
 	    for (i=0; i<currmax; i++)
 		FD_SET(s[i], &rdfs);

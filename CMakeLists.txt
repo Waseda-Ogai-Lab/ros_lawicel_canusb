@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  coms_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -48,11 +48,12 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+   FILES
+   CanMessage.msg
+   CanMessageStamped.msg
+   testtt.msg
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -69,10 +70,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+ DEPENDENCIES
+ std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -189,7 +190,8 @@ catkin_package(
 #############
 ## Testing ##
 #############
-
+include_directories(${catkin_INCLUDE_DIRS} include)   #头文件所在位置
+link_directories(${catkin_LIB_DIRS} lib)
 ## Add gtest based cpp test target and link libraries
 # catkin_add_gtest(${PROJECT_NAME}-test test/test_lawicel_canusb.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
@@ -203,6 +205,9 @@ link_directories(${catkin_LIB_DIRS} lib)
 
 add_executable(can2ros src/can2ros.cpp)
 target_link_libraries(can2ros ${catkin_LIBRARIES} lib)
+
+add_executable(can_ros src/can2ros.cpp)
+target_link_libraries(can_ros ${catkin_LIBRARIES} lib)
 
 add_executable(ros2can src/ros2can.cpp)
 target_link_libraries(ros2can ${catkin_LIBRARIES} data2msg)
