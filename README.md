@@ -12,9 +12,24 @@ About CANUSB's picture as follow:
 Send messages to ROS Topic *"/can_tx"*  
 - Read Receive CAN message:   
 
-All the can message will be published on ROS Topic *"/can_rx"*    
+All the can message will be published on ROS Topic *"/can_rx"*  
 
-## Run  
+## Pretreatment
+If it is the first time to do the step, you should:
+- cd into the launch file, for example:
+```
+cd ~/catkin/src/ros_lawicel_canusb/launch
+```
+- Execute the tty.sh file
+```
+./tty.sh
+```
+- Reset computer to make the rules file effective
+```
+sudo reboot
+```
+
+## Run  
 - Register the can device
 ```
 rosrun package_name canopen.sh
