@@ -1,0 +1,1 @@
+ACTION=="add", ENV{ID_MODEL}=="CANUSB", ENV{SUBSYSTEM}=="tty", SYMLINK+="tty_usb"
