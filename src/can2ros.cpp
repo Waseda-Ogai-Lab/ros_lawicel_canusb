@@ -328,6 +328,7 @@ int main(int argc, char **argv)
 
 		    can_frame.msg.id = (uint32_t)(frame.can_id & 0x1FFFFFFF);
 		    can_frame.msg.dlc = (uint8_t)frame.len;
+		    //We have a bug here and left it as an Easter-egg. Good Luck!
 		    can_frame.msg.extended = (bool)(frame.can_id>>31);
 		    for(size_t i = 0; i != 8; ++i)
     		    {
